@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mathematical Induction | Class 12 CBSE Mathematics Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kalam:wght@300;400;700&family=Patrick+Hand&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="toolbar no-print">
+    <span class="toolbar-title">Class 12 CBSE Mathematics Project</span>
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+  </nav>
+ 
+  <!-- ===================== COVER ===================== -->
+  <article class="page cover-page">
+    <div class="cover-outer">
+      <div class="cover-inner">
+        <p class="cover-board">CENTRAL BOARD OF SECONDARY EDUCATION</p>
+        <p class="cover-class">CLASS XII &nbsp;|&nbsp; MATHEMATICS</p>
+        <div class="cover-line"></div>
+        <p class="cover-label">PROJECT FILE</p>
+        <h1 class="cover-topic">Mathematical<br />Induction</h1>
+        <p class="cover-formula">P(1) true &nbsp;and&nbsp; P(k) &rarr; P(k+1) &nbsp;&rArr;&nbsp; P(n) true &forall; n &isin; N</p>
+        <div class="cover-line"></div>
+        <table class="cover-meta">
+          <tr><td>Name</td><td class="blank">________________________________</td></tr>
+          <tr><td>Class / Section</td><td class="blank">XII &nbsp;/&nbsp; ________</td></tr>
+          <tr><td>Roll Number</td><td class="blank">________________________________</td></tr>
+          <tr><td>Session</td><td class="blank">2025 &ndash; 2026</td></tr>
+          <tr><td>School</td><td class="blank">________________________________</td></tr>
+          <tr><td>Subject Teacher</td><td class="blank">________________________________</td></tr>
+        </table>
+        <p class="cover-foot">Submitted in partial fulfilment of the CBSE Class 12 Mathematics practical / project work.</p>
+      </div>
+    </div>
+  </article>
+ 
+  <!-- ===================== CERTIFICATE ===================== -->
+  <article class="page cert-page">
+    <div class="cover-outer">
+      <div class="cover-inner cert-inner">
+        <h2 class="cert-title">Certificate</h2>
+        <div class="cover-line"></div>
+        <p class="cert-body">
+          This is to certify that <span class="blank-inline">____________________________</span>
+          of Class XII, Roll No. <span class="blank-inline">__________</span>, has completed the
+          Mathematics project on the topic
+          <strong>&ldquo;Mathematical Induction&rdquo;</strong> under my guidance.
+        </p>
+        <p class="cert-body">
+          The work is original, based on the CBSE / NCERT syllabus, and is a genuine
+          effort of the student. The project contains twelve handwritten pages of
+          content, along with this certificate and the cover page.
+        </p>
+        <p class="cert-body">
+          I wish the student success in the Board Examination and in further studies.
+        </p>
+        <div class="cert-sign">
+          <div>
+            <p class="sign-line">________________________</p>
+            <p>Signature of Student</p>
+            <p>Date: ______________</p>
+          </div>
+          <div>
+            <p class="sign-line">________________________</p>
+            <p>Signature of Teacher</p>
+            <p>Name: ______________</p>
+          </div>
+        </div>
+        <div class="cert-sign">
+          <div>
+            <p class="sign-line">________________________</p>
+            <p>Signature of Principal</p>
+            <p>School Seal</p>
+          </div>
+          <div>
+            <p class="sign-line">________________________</p>
+            <p>Internal Examiner</p>
+            <p>Date: ______________</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+ 
+  <!-- ===================== PAGE 1 ===================== -->
+  <article class="page lined">
+    <header class="page-top">
+      <span>Mathematics Project &middot; Class XII CBSE</span>
+      <span>Mathematical Induction</span>
+    </header>
+    <p class="page-label">PAGE 1</p>
+    <h2>Introduction to Mathematical Induction</h2>
+ 
+    <p>Mathematical Induction is a special method of proof. We use it when we want to show that a statement is true for every natural number. Natural numbers are 1, 2, 3, 4, 5, &hellip; and so on. We write this set as N.</p>
+ 
+    <p>In algebra we often meet formulas such as</p>
+    <p class="formula">1 + 2 + 3 + &hellip; + n &nbsp;=&nbsp; n(n + 1) / 2</p>
+    <p>and</p>
+    <p class="formula">1&sup2; + 2&sup2; + 3&sup2; + &hellip; + n&sup2; &nbsp;=&nbsp; n(n + 1)(2n + 1) / 6</p>
+ 
+    <p>How can we be sure that such a formula works for every n? We cannot check infinitely many numbers one by one. Mathematical Induction gives us a short and logical way to prove the result for all n at once.</p>
+ 
+    <h3>What does the word &ldquo;induction&rdquo; mean?</h3>
+    <p>Induction means moving from a particular case to a general result. First we check the statement for a small value, usually n = 1. Next we show that if the statement is true for one number, it must be true for the next number. In this way the result climbs up to all natural numbers.</p>
+ 
+    <h3>The domino picture</h3>
+    <p>Think of a long row of standing dominos.</p>
+    <ol class="plain">
+      <li>If we push the first domino, it falls.</li>
+      <li>If any one domino falls, it knocks down the next one.</li>
+    </ol>
+    <p>Then every domino in the row will fall. Mathematical Induction works in exactly this way. The first falling domino is the base case. The knocking of the next domino is the inductive step.</p>
+ 
+    <div class="diagram">
+      <svg viewBox="0 0 520 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g transform="rotate(-18 40 70)">
+          <rect x="20" y="18" width="22" height="62" rx="2" fill="#f7e7c6" stroke="#3b4a6b" stroke-width="2"/>
+          <text x="31" y="55" text-anchor="middle" font-size="14" fill="#3b4a6b" font-family="Kalam">1</text>
+        </g>
+        <rect x="80" y="18" width="22" height="62" rx="2" fill="#f7e7c6" stroke="#3b4a6b" stroke-width="2"/>
+        <text x="91" y="55" text-anchor="middle" font-size="14" fill="#3b4a6b" font-family="Kalam">2</text>
+        <rect x="130" y="18" width="22" height="62" rx="2" fill="#f7e7c6" stroke="#3b4a6b" stroke-width="2"/>
+        <text x="141" y="55" text-anchor="middle" font-size="14" fill="#3b4a6b" font-family="Kalam">3</text>
+        <rect x="180" y="18" width="22" height="62" rx="2" fill="#f7e7c6" stroke="#3b4a6b" stroke-width="2"/>
+        <text x="191" y="55" text-anchor="middle" font-size="14" fill="#3b4a6b" font-family="Kalam">k</text>
+        <rect x="230" y="18" width="22" height="62" rx="2" fill="#d6e8c8" stroke="#2f6b3a" stroke-width="2"/>
+        <text x="241" y="52" text-anchor="middle" font-size="11" fill="#2f6b3a" font-family="Kalam">k+1</text>
+        <text x="290" y="52" font-size="22" fill="#3b4a6b" font-family="Kalam">&hellip;</text>
+        <rect x="340" y="18" width="22" height="62" rx="2" fill="#f7e7c6" stroke="#3b4a6b" stroke-width="2"/>
+        <text x="351" y="55" text-anchor="middle" font-size="14" fill="#3b4a6b" font-family="Kalam">n</text>
+        <text x="20" y="88" font-size="12" fill="#5a3a2a" font-family="Kalam">Push the first  &rarr;  each one knocks the next  &rarr;  all fall</text>
+      </svg>
+    </div>
+ 
+    <h3>Why is this topic important?</h3>
+    <ul>
+      <li>It is a standard method in NCERT Class 11 Mathematics.</li>
+      <li>It is used to prove formulas of sequences and series.</li>
+      <li>It is used to prove divisibility results in number theory.</li>
+      <li>It is used in inequalities, algebra and even in computer science (loops and recursion).</li>
+      <li>It trains us to write clear, step-by-step logical proofs.</li>
+    </ul>
+    <p>In this project we shall study the principle, write it in mathematical form, solve five examples, and discuss its uses, merits and limitations.</p>
+    <footer class="page-no">Page 1 of 12</footer>
+  </article>
+ 
+  <!-- ===================== PAGE 2 ===================== -->
+  <article class="page lined">
+    <header class="page-top">
+      <span>Mathematics Project &middot; Class XII CBSE</span>
+      <span>Mathematical Induction</span>
+    </header>
+    <p class="page-label">PAGE 2</p>
+    <h2>Principle of Mathematical Induction (PMI)</h2>
+ 
+    <p>The Principle of Mathematical Induction is a basic rule of natural numbers. It tells us when a statement about n is true for every natural number n.</p>
+ 
+    <p>Let P(n) stand for a statement that involves a natural number n. For example,</p>
+    <p class="formula">P(n) : &nbsp; 1 + 2 + 3 + &hellip; + n &nbsp;=&nbsp; n(n + 1) / 2</p>
+    <p>For each value of n, P(n) is either true or false. Our aim is to prove that P(n) is true for all n in N.</p>
+ 
+    <h3>The principle (in simple words)</h3>
+    <div class="box">
+      <p>If</p>
+      <p>(i) P(1) is true, and</p>
+      <p>(ii) whenever P(k) is true, then P(k + 1) is also true,</p>
+      <p>then P(n) is true for all natural numbers n.</p>
+    </div>
+    <p>This is called the <strong>First Principle of Mathematical Induction</strong>. NCERT treats it as an axiom of the natural numbers. We accept it and use it to prove other results.</p>
+ 
+    <h3>The basic idea</h3>
+    <p>We do not prove the result for every n separately. We only do two things:</p>
+    <p><strong>Step A.</strong> Start the chain &mdash; check the statement for n = 1.</p>
+    <p><strong>Step B.</strong> Keep the chain going &mdash; show that truth at k forces truth at k + 1.</p>
+    <p>Once both are done, the chain never breaks. So the statement is true for n = 1, then 2, then 3, then 4, and so on, without end.</p>
+ 
+    <h3>Why does the chain work?</h3>
+    <p>P(1) is true by Step A. Using Step B with k = 1, we get P(2). Using Step B with k = 2, we get P(3). Continuing like this, we reach P(n) for every natural number n.</p>
+    <p class="formula">P(1) &rarr; P(2) &rarr; P(3) &rarr; P(4) &rarr; &hellip; &rarr; P(n) &rarr; &hellip;</p>
+ 
+    <h3>Points to remember</h3>
+    <ul>
+      <li>The starting value need not always be 1. If a statement is given for n &ge; 0 or n &ge; 2, we take that smallest value as the base case.</li>
+      <li>P(n) must be a clear mathematical sentence, not a vague sentence.</li>
+      <li>Induction is a method of <em>proof</em>. It does not invent the formula. First we are given (or we guess) a formula. Then we prove it.</li>
+      <li>Both parts of the principle are needed. A true base case with a false inductive step, or a true inductive step with a false base case, is not a valid proof.</li>
+    </ul>
+    <p>In the next page we study these two steps in detail: the base case, the inductive hypothesis and the inductive step.</p>
+    <footer class="page-no">Page 2 of 12</footer>
+  </article>
+ 
+  <!-- ===================== PAGE 3 ===================== -->
+  <article class="page lined">
+    <header class="page-top">
+      <span>Mathematics Project &middot; Class XII CBSE</span>
+      <span>Mathematical Induction</span>
+    </header>
+    <p class="page-label">PAGE 3</p>
+    <h2>The Two Main Steps of Mathematical Induction</h2>
+    <p>To prove a statement P(n) by mathematical induction we always follow two main steps. Both steps are necessary. If even one of them is missing, the proof is incomplete.</p>
+ 
+    <h3>Step 1 &mdash; Base Case (Basic Step)</h3>
+    <p>In this step we put the smallest allowed value of n into P(n) and check that the statement is actually true. In most school problems this value is n = 1.</p>
+    <p>We write: &nbsp; <strong>P(1) is true.</strong></p>
+    <p><strong>Example.</strong> Let P(n) be</p>
+    <p class="formula">1 + 3 + 5 + &hellip; + (2n &minus; 1) &nbsp;=&nbsp; n&sup2;</p>
+    <p>Then P(1) means 1 = 1&sup2;, which is true. The base case is verified.</p>
+    <p>This step is like pushing the first domino. If the first statement is false, the whole proof fails, even if the second step looks correct.</p>
+    <div class="note">
+      <p><strong>Note:</strong> Always show the actual calculation for n = 1 (or the given starting value). Do not just write &ldquo;it is obviously true&rdquo;.</p>
+    </div>
+ 
+    <h3>Step 2 &mdash; Inductive Hypothesis and Inductive Step</h3>
+    <p><strong>(a) Inductive Hypothesis (I.H.)</strong></p>
+    <p>We assume that the statement is true for some natural number k. That is, we assume P(k) is true. This assumption is called the inductive hypothesis.</p>
+    <p>We are not saying that P(k) is true for every k. We only assume it for one fixed k, so that we can study the next number k + 1.</p>
+    <p><strong>(b) Inductive Step</strong></p>
+    <p>Using the inductive hypothesis, we prove that P(k + 1) is true. In symbols we show</p>
+    <p class="formula">P(k) is true &nbsp;&nbsp;&rArr;&nbsp;&nbsp; P(k + 1) is true</p>
+    <p>This is like proving that if one domino falls, the next one also falls. In the working we must use P(k) in a clear way. Writing &ldquo;similarly it is true for n = k + 1&rdquo; without algebra is not a proof.</p>
+ 
+    <h3>How the two steps sit together</h3>
+    <table class="simple">
+      <tr><th>Step</th><th>Name</th><th>What we do</th><th>Domino picture</th></tr>
+      <tr><td>1</td><td>Base case</td><td>Prove P(1)</td><td>Push the first domino</td></tr>
+      <tr><td>2(a)</td><td>I.H.</td><td>Assume P(k)</td><td>Suppose the k-th domino falls</td></tr>
+      <tr><td>2(b)</td><td>Inductive step</td><td>Prove P(k + 1)</td><td>Then the (k + 1)-th also falls</td></tr>
+    </table>
+ 
+    <h3>Conclusion of a proof</h3>
+    <p>If both steps succeed, we write:</p>
+    <p class="formula">Hence, by the Principle of Mathematical Induction, P(n) is true for all n &isin; N.</p>
+    <p>Common mistakes: skipping the base case; assuming P(k + 1) instead of proving it; and using P(n) for all n inside the inductive step (that would be circular).</p>
+    <footer class="page-no">Page 3 of 12</footer>
+  </article>
+ 
+  <!-- ===================== PAGE 4 ===================== -->
+  <article class="page lined">
+    <header class="page-top">
+      <span>Mathematics Project &middot; Class XII CBSE</span>
+      <span>Mathematical Induction</span>
+    </header>
+    <p class="page-label">PAGE 4</p>
+    <h2>Mathematical Formulation of PMI</h2>
+    <p>Let P(n) be a statement associated with a positive integer n. The Principle of Mathematical Induction can be written in compact form as follows.</p>
+ 
+    <div class="box">
+      <p><strong>Statement of PMI</strong></p>
+      <p>If &nbsp;(i) P(1) is true, and</p>
+      <p>(ii) P(k) true &nbsp;&rArr;&nbsp; P(k + 1) true, for any k &isin; N,</p>
+      <p>then P(n) is true for all n &isin; N.</p>
+    </div>
+ 
+    <h3>Meaning of P(n), P(k) and P(k + 1)</h3>
+    <p>These three are not three different formulas. They are the <em>same</em> statement written for different values of the variable.</p>
+ 
+    <p><strong>1. P(n) &mdash; the general statement</strong></p>
+    <p>P(n) is the result we want to prove. The letter n is a variable standing for a natural number.</p>
+    <p class="formula">Example: &nbsp; P(n) : &nbsp; 2<sup>n</sup> &gt; n</p>
+    <p>Here P(n) talks about every n. Our job is to prove it.</p>
+ 
+    <p><strong>2. P(k) &mdash; the inductive hypothesis</strong></p>
+    <p>P(k) is the same statement with n replaced by k. Here k is a particular natural number. When we assume P(k) is true, we are making the inductive hypothesis.</p>
+    <p class="formula">Example: &nbsp; P(k) : &nbsp; 2<sup>k</sup> &gt; k</p>
+ 
+    <p><strong>3. P(k + 1) &mdash; the next case</strong></p>
+    <p>P(k + 1) is the statement for the next natural number after k. In the inductive step we must prove this, using P(k).</p>
+    <p class="formula">Example: &nbsp; P(k + 1) : &nbsp; 2<sup>k+1</sup> &gt; k + 1</p>
+ 
+    <h3>Order of writing a school proof</h3>
+    <ol class="plain">
+      <li>Write P(n) clearly in words or in symbols.</li>
+      <li>Prove P(1). &nbsp;&nbsp;[Base case]</li>
+      <li>Assume P(k) is true. &nbsp;&nbsp;[Inductive hypothesis]</li>
+      <li>Prove P(k + 1), showing every algebraic step and using (3).</li>
+      <li>Conclude that P(n) is true for all n &isin; N, by PMI.</li>
+    </ol>
+ 
+    <h3>Set language (optional extra)</h3>
+    <p>Let S = { n &isin; N : P(n) is true }. If 1 &isin; S and (k &isin; S &rArr; k + 1 &isin; S), then S = N. This is the same principle written with sets.</p>
+ 
+    <div class="note">
+      <p><strong>Highlight:</strong> Replace n by 1 to get P(1). Replace n by k to get P(k). Replace n by k + 1 to get P(k + 1). Always write P(k + 1) by putting n = k + 1 in the original statement, not by guesswork.</p>
+    </div>
+    <p>We now apply this formulation to five standard examples from sequences, inequalities and divisibility.</p>
+    <footer class="page-no">Page 4 of 12</footer>
+  </article>
+ 
+  <!-- ===================== PAGE 5 ===================== -->
+  <article class="page lined">
+    <header class="page-top">
+      <span>Mathematics Project &middot; Class XII CBSE</span>
+      <span>Mathematical Induction</span>
+    </header>
+    <p class="page-label">PAGE 5</p>
+    <h2>Solved Example 1 &mdash; Sum of First n Natural Numbers</h2>
+    <p><strong>To prove:</strong> For every natural number n,</p>
+    <p class="formula">1 + 2 + 3 + &hellip; + n &nbsp;=&nbsp; n(n + 1) / 2</p>
+    <p>Let P(n) be the statement</p>
+    <p class="formula">P(n) : &nbsp; 1 + 2 + 3 + &hellip; + n &nbsp;=&nbsp; n(n + 1) / 2</p>
+ 
+    <h3>Step 1. Base case (n = 1)</h3>
+    <p>Left side of P(1) = 1</p>
+    <p>Right side of P(1) = 1(1 + 1) / 2 = 1 &times; 2 / 2 = 1</p>
+    <p>Left side = right side. Therefore P(1) is true.</p>
+ 
+    <h3>Step 2. Inductive hypothesis</h3>
+    <p>Assume that P(k) is true for some natural number k. That is,</p>
+    <p class="formula">1 + 2 + 3 + &hellip; + k &nbsp;=&nbsp; k(k + 1) / 2 &nbsp;&nbsp;&nbsp;...(1)</p>
+    <p>This is the inductive hypothesis.</p>
+ 
+    <h3>Step 3. Inductive step (prove P(k + 1))</h3>
+    <p>We must prove</p>
+    <p class="formula">P(k + 1) : &nbsp; 1 + 2 + &hellip; + k + (k + 1) &nbsp;=&nbsp; (k + 1)(k + 2) / 2</p>
+    <p>Start from the left side of P(k + 1):</p>
+    <p class="work">L.H.S. = 1 + 2 + &hellip; + k + (k + 1)</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= [1 + 2 + &hellip; + k] + (k + 1)</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= k(k + 1) / 2 &nbsp;+&nbsp; (k + 1) &nbsp;&nbsp;&nbsp;[using (1)]</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= (k + 1) [ k/2 + 1 ]</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= (k + 1) [ (k + 2) / 2 ]</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= (k + 1)(k + 2) / 2</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= R.H.S. of P(k + 1)</p>
+    <p>So P(k + 1) is true whenever P(k) is true.</p>
+ 
+    <h3>Conclusion</h3>
+    <p>P(1) is true, and P(k) &rArr; P(k + 1). Therefore, by the Principle of Mathematical Induction, P(n) is true for all natural numbers n.</p>
+    <div class="note">
+      <p><strong>Important formula:</strong> Sum of first n natural numbers = n(n + 1)/2. This is also the n-th triangular number. Check: for n = 5, 1+2+3+4+5 = 15 and 5&times;6/2 = 15.</p>
+    </div>
+    <footer class="page-no">Page 5 of 12</footer>
+  </article>
+ 
+  <!-- ===================== PAGE 6 ===================== -->
+  <article class="page lined">
+    <header class="page-top">
+      <span>Mathematics Project &middot; Class XII CBSE</span>
+      <span>Mathematical Induction</span>
+    </header>
+    <p class="page-label">PAGE 6</p>
+    <h2>Solved Example 2 &mdash; Sum of First n Odd Numbers</h2>
+    <p><strong>To prove:</strong> For every natural number n,</p>
+    <p class="formula">1 + 3 + 5 + &hellip; + (2n &minus; 1) &nbsp;=&nbsp; n&sup2;</p>
+    <p>The n-th odd natural number is 2n &minus; 1. So the left side is the sum of the first n odd numbers. Let</p>
+    <p class="formula">P(n) : &nbsp; 1 + 3 + 5 + &hellip; + (2n &minus; 1) &nbsp;=&nbsp; n&sup2;</p>
+ 
+    <h3>Step 1. Base case (n = 1)</h3>
+    <p>Left side of P(1) = 1 &nbsp;&nbsp;(only the first odd number)</p>
+    <p>Right side of P(1) = 1&sup2; = 1</p>
+    <p>Hence P(1) is true.</p>
+ 
+    <h3>Step 2. Inductive hypothesis</h3>
+    <p>Assume P(k) is true for some k &isin; N:</p>
+    <p class="formula">1 + 3 + 5 + &hellip; + (2k &minus; 1) &nbsp;=&nbsp; k&sup2; &nbsp;&nbsp;&nbsp;...(1)</p>
+ 
+    <h3>Step 3. Inductive step (prove P(k + 1))</h3>
+    <p>The next odd number after (2k &minus; 1) is (2k + 1), because</p>
+    <p class="formula">2(k + 1) &minus; 1 = 2k + 2 &minus; 1 = 2k + 1</p>
+    <p>We must prove</p>
+    <p class="formula">P(k + 1) : &nbsp; 1 + 3 + &hellip; + (2k &minus; 1) + (2k + 1) &nbsp;=&nbsp; (k + 1)&sup2;</p>
+    <p class="work">L.H.S. = [1 + 3 + &hellip; + (2k &minus; 1)] + (2k + 1)</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= k&sup2; + (2k + 1) &nbsp;&nbsp;&nbsp;[using (1)]</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= k&sup2; + 2k + 1</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= (k + 1)&sup2;</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= R.H.S.</p>
+    <p>Thus P(k + 1) is true whenever P(k) is true.</p>
+ 
+    <h3>Conclusion</h3>
+    <p>By PMI, P(n) is true for all n &isin; N. That is, the sum of the first n odd natural numbers is n&sup2;.</p>
+ 
+    <h3>A small check and a picture</h3>
+    <p>For n = 4: 1 + 3 + 5 + 7 = 16 = 4&sup2;. We can also see this as a square of dots. Each new odd number adds a new L-shaped border (called a gnomon) and the figure remains a square.</p>
+    <div class="diagram">
+      <svg viewBox="0 0 280 88" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="18" cy="44" r="7" fill="#3b4a6b"/>
+        <circle cx="70" cy="28" r="7" fill="#2f6b3a"/><circle cx="90" cy="28" r="7" fill="#2f6b3a"/>
+        <circle cx="70" cy="48" r="7" fill="#2f6b3a"/><circle cx="90" cy="48" r="7" fill="#2f6b3a"/>
+        <circle cx="150" cy="18" r="6" fill="#8a4b2a"/><circle cx="168" cy="18" r="6" fill="#8a4b2a"/><circle cx="186" cy="18" r="6" fill="#8a4b2a"/>
+        <circle cx="150" cy="36" r="6" fill="#8a4b2a"/><circle cx="168" cy="36" r="6" fill="#8a4b2a"/><circle cx="186" cy="36" r="6" fill="#8a4b2a"/>
+        <circle cx="150" cy="54" r="6" fill="#8a4b2a"/><circle cx="168" cy="54" r="6" fill="#8a4b2a"/><circle cx="186" cy="54" r="6" fill="#8a4b2a"/>
+        <text x="18" y="78" text-anchor="middle" font-size="12" font-family="Kalam" fill="#3b4a6b">1=1&sup2;</text>
+        <text x="80" y="78" text-anchor="middle" font-size="12" font-family="Kalam" fill="#2f6b3a">1+3=2&sup2;</text>
+        <text x="168" y="78" text-anchor="middle" font-size="12" font-family="Kalam" fill="#8a4b2a">1+3+5=3&sup2;</text>
+      </svg>
+    </div>
+    <div class="note">
+      <p><strong>Important formula:</strong> 1 + 3 + 5 + &hellip; + (2n &minus; 1) = n&sup2;.</p>
+    </div>
+    <footer class="page-no">Page 6 of 12</footer>
+  </article>
+ 
+  <!-- ===================== PAGE 7 ===================== -->
+  <article class="page lined">
+    <header class="page-top">
+      <span>Mathematics Project &middot; Class XII CBSE</span>
+      <span>Mathematical Induction</span>
+    </header>
+    <p class="page-label">PAGE 7</p>
+    <h2>Solved Example 3 &mdash; An Inequality: 2<sup>n</sup> &gt; n</h2>
+    <p><strong>To prove:</strong> 2<sup>n</sup> &gt; n &nbsp; for all positive integers n.</p>
+    <p>This example shows that induction is not only for equalities. It also works for inequalities. Let</p>
+    <p class="formula">P(n) : &nbsp; 2<sup>n</sup> &gt; n</p>
+ 
+    <h3>Step 1. Base case (n = 1)</h3>
+    <p>2<sup>1</sup> = 2 &nbsp; and &nbsp; n = 1. &nbsp; Now 2 &gt; 1, which is true.</p>
+    <p>Hence P(1) is true.</p>
+    <p>(We may also glance at n = 2: 2<sup>2</sup> = 4 &gt; 2, true. This extra check is not required, but it builds confidence.)</p>
+ 
+    <h3>Step 2. Inductive hypothesis</h3>
+    <p>Assume P(k) is true for some k &isin; N:</p>
+    <p class="formula">2<sup>k</sup> &gt; k &nbsp;&nbsp;&nbsp;...(1)</p>
+ 
+    <h3>Step 3. Inductive step (prove P(k + 1))</h3>
+    <p>We must prove 2<sup>k+1</sup> &gt; k + 1.</p>
+    <p class="work">L.H.S. = 2<sup>k+1</sup> = 2 &middot; 2<sup>k</sup></p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt; 2 &middot; k &nbsp;&nbsp;&nbsp;[by (1), because 2<sup>k</sup> &gt; k]</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 2k</p>
+    <p>We now need 2k compared with k + 1. For every natural number k,</p>
+    <p class="formula">2k &minus; (k + 1) = k &minus; 1 &ge; 0 &nbsp; for k &ge; 1</p>
+    <p>so 2k &ge; k + 1. Equality holds only when k = 1 (then 2k = 2 = k + 1). For k &ge; 2 we have 2k &gt; k + 1.</p>
+    <p>Therefore</p>
+    <p class="work">2<sup>k+1</sup> &gt; 2k &ge; k + 1</p>
+    <p>When k = 1, the first inequality is strict (because 2<sup>k</sup> &gt; k), so</p>
+    <p class="work">2<sup>k+1</sup> &gt; 2k = k + 1 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; 2<sup>k+1</sup> &gt; k + 1</p>
+    <p>When k &ge; 2, 2<sup>k+1</sup> &gt; 2k &gt; k + 1, so again 2<sup>k+1</sup> &gt; k + 1.</p>
+    <p>In both cases P(k + 1) is true.</p>
+ 
+    <h3>Conclusion</h3>
+    <p>By PMI, 2<sup>n</sup> &gt; n for all positive integers n.</p>
+    <div class="note">
+      <p><strong>Remark:</strong> Exponential growth (powers of 2) overtakes linear growth (the number n itself). A few values: n = 1 &rarr; 2 &gt; 1; n = 5 &rarr; 32 &gt; 5; n = 10 &rarr; 1024 &gt; 10.</p>
+    </div>
+    <footer class="page-no">Page 7 of 12</footer>
+  </article>
+ 
+  <!-- ===================== PAGE 8 ===================== -->
+  <article class="page lined">
+    <header class="page-top">
+      <span>Mathematics Project &middot; Class XII CBSE</span>
+      <span>Mathematical Induction</span>
+    </header>
+    <p class="page-label">PAGE 8</p>
+    <h2>Solved Example 4 &mdash; A Divisibility Result</h2>
+    <p><strong>To prove:</strong> 7<sup>n</sup> &minus; 1 is divisible by 6 for all positive integers n.</p>
+    <p>In other words, 6 divides (7<sup>n</sup> &minus; 1), or we can write</p>
+    <p class="formula">7<sup>n</sup> &minus; 1 = 6m &nbsp; for some integer m</p>
+    <p>Let P(n) be the statement</p>
+    <p class="formula">P(n) : &nbsp; 7<sup>n</sup> &minus; 1 is divisible by 6</p>
+ 
+    <h3>Step 1. Base case (n = 1)</h3>
+    <p>7<sup>1</sup> &minus; 1 = 7 &minus; 1 = 6</p>
+    <p>and 6 = 6 &times; 1, which is clearly divisible by 6.</p>
+    <p>Hence P(1) is true.</p>
+ 
+    <h3>Step 2. Inductive hypothesis</h3>
+    <p>Assume P(k) is true. Then 7<sup>k</sup> &minus; 1 is divisible by 6, so there exists an integer m such that</p>
+    <p class="formula">7<sup>k</sup> &minus; 1 = 6m &nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp; 7<sup>k</sup> = 6m + 1 &nbsp;&nbsp;&nbsp;...(1)</p>
+ 
+    <h3>Step 3. Inductive step (prove P(k + 1))</h3>
+    <p>We must show that 7<sup>k+1</sup> &minus; 1 is divisible by 6.</p>
+    <p class="work">7<sup>k+1</sup> &minus; 1 = 7 &middot; 7<sup>k</sup> &minus; 1</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 7(6m + 1) &minus; 1 &nbsp;&nbsp;&nbsp;[using (1)]</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 42m + 7 &minus; 1</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 42m + 6</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 6(7m + 1)</p>
+    <p>Now (7m + 1) is an integer. Therefore 7<sup>k+1</sup> &minus; 1 is a multiple of 6.</p>
+    <p>Hence P(k + 1) is true whenever P(k) is true.</p>
+ 
+    <h3>Conclusion</h3>
+    <p>By the Principle of Mathematical Induction, 7<sup>n</sup> &minus; 1 is divisible by 6 for all positive integers n.</p>
+ 
+    <h3>A short extra check</h3>
+    <table class="simple">
+      <tr><th>n</th><th>7<sup>n</sup></th><th>7<sup>n</sup> &minus; 1</th><th>(7<sup>n</sup> &minus; 1) / 6</th></tr>
+      <tr><td>1</td><td>7</td><td>6</td><td>1</td></tr>
+      <tr><td>2</td><td>49</td><td>48</td><td>8</td></tr>
+      <tr><td>3</td><td>343</td><td>342</td><td>57</td></tr>
+      <tr><td>4</td><td>2401</td><td>2400</td><td>400</td></tr>
+    </table>
+    <div class="note">
+      <p><strong>Pattern:</strong> 7 = 6 + 1, so 7 &equiv; 1 (mod 6). Then 7<sup>n</sup> &equiv; 1<sup>n</sup> &equiv; 1 (mod 6), hence 7<sup>n</sup> &minus; 1 &equiv; 0 (mod 6). Induction proves the same fact without using congruences.</p>
+    </div>
+    <footer class="page-no">Page 8 of 12</footer>
+  </article>
+ 
+  <!-- ===================== PAGE 9 ===================== -->
+  <article class="page lined">
+    <header class="page-top">
+      <span>Mathematics Project &middot; Class XII CBSE</span>
+      <span>Mathematical Induction</span>
+    </header>
+    <p class="page-label">PAGE 9</p>
+    <h2>Solved Example 5 &mdash; Sum of Squares</h2>
+    <p><strong>To prove:</strong> For every natural number n,</p>
+    <p class="formula">1&sup2; + 2&sup2; + 3&sup2; + &hellip; + n&sup2; &nbsp;=&nbsp; n(n + 1)(2n + 1) / 6</p>
+    <p>Let P(n) denote this statement.</p>
+ 
+    <h3>Step 1. Base case (n = 1)</h3>
+    <p>L.H.S. of P(1) = 1&sup2; = 1</p>
+    <p>R.H.S. of P(1) = 1(1 + 1)(2 + 1) / 6 = 1 &times; 2 &times; 3 / 6 = 6 / 6 = 1</p>
+    <p>Hence P(1) is true.</p>
+ 
+    <h3>Step 2. Inductive hypothesis</h3>
+    <p>Assume P(k) is true:</p>
+    <p class="formula">1&sup2; + 2&sup2; + &hellip; + k&sup2; &nbsp;=&nbsp; k(k + 1)(2k + 1) / 6 &nbsp;&nbsp;&nbsp;...(1)</p>
+ 
+    <h3>Step 3. Inductive step (prove P(k + 1))</h3>
+    <p>We must prove</p>
+    <p class="formula">1&sup2; + &hellip; + k&sup2; + (k + 1)&sup2; &nbsp;=&nbsp; (k + 1)(k + 2)[2(k + 1) + 1] / 6</p>
+    <p>that is, R.H.S. = (k + 1)(k + 2)(2k + 3) / 6.</p>
+    <p class="work">L.H.S. = k(k + 1)(2k + 1)/6 &nbsp;+&nbsp; (k + 1)&sup2; &nbsp;&nbsp;[by (1)]</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= (k + 1) [ k(2k + 1)/6 &nbsp;+&nbsp; (k + 1) ]</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= (k + 1) [ k(2k + 1) + 6(k + 1) ] / 6</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= (k + 1) [ 2k&sup2; + k + 6k + 6 ] / 6</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= (k + 1) (2k&sup2; + 7k + 6) / 6</p>
+    <p>Factorise the quadratic: we look for two numbers whose product is 2 &times; 6 = 12 and whose sum is 7. These are 3 and 4.</p>
+    <p class="work">2k&sup2; + 7k + 6 = 2k&sup2; + 3k + 4k + 6 = k(2k + 3) + 2(2k + 3)</p>
+    <p class="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= (2k + 3)(k + 2)</p>
+    <p>Check: (2k + 3)(k + 2) = 2k&sup2; + 4k + 3k + 6 = 2k&sup2; + 7k + 6. Correct.</p>
+    <p class="work">L.H.S. = (k + 1)(k + 2)(2k + 3) / 6 = R.H.S.</p>
+    <p>Hence P(k + 1) is true.</p>
+ 
+    <h3>Conclusion</h3>
+    <p>By PMI, the formula holds for all n &isin; N.</p>
+    <div class="note">
+      <p><strong>Important formulas:</strong></p>
+      <p>&sum; n = n(n+1)/2, &nbsp; &sum; n&sup2; = n(n+1)(2n+1)/6, &nbsp; &sum; n&sup3; = [n(n+1)/2]&sup2;</p>
+      <p>Check: n = 3 &rarr; 1+4+9 = 14, and 3&times;4&times;7/6 = 84/6 = 14.</p>
+    </div>
+    <footer class="page-no">Page 9 of 12</footer>
+  </article>
+ 
+  <!-- ===================== PAGE 10 ===================== -->
+  <article class="page lined">
+    <header class="page-top">
+      <span>Mathematics Project &middot; Class XII CBSE</span>
+      <span>Mathematical Induction</span>
+    </header>
+    <p class="page-label">PAGE 10</p>
+    <h2>Applications of Mathematical Induction</h2>
+    <p>Mathematical Induction is not a topic that lives only in one chapter. Once we learn it, we meet it again and again in algebra, sequences, number theory and even in computer science. Some important applications are given below.</p>
+ 
+    <h3>1. Sequences and series</h3>
+    <p>Many standard sums are proved by induction. We have already proved three of them:</p>
+    <ul>
+      <li>sum of first n natural numbers</li>
+      <li>sum of first n odd numbers</li>
+      <li>sum of squares of first n natural numbers</li>
+    </ul>
+    <p>In the same way we can prove</p>
+    <p class="formula">1&sup3; + 2&sup3; + &hellip; + n&sup3; &nbsp;=&nbsp; [n(n + 1)/2]&sup2;</p>
+    <p>and the formula for the sum of a geometric series</p>
+    <p class="formula">1 + r + r&sup2; + &hellip; + r<sup>n&minus;1</sup> = (r<sup>n</sup> &minus; 1)/(r &minus; 1), &nbsp; r &ne; 1</p>
+    <p>Arithmetic and geometric progressions in Class 11 become more rigorous when their formulas are proved by PMI.</p>
+ 
+    <h3>2. Algebra and inequalities</h3>
+    <p>Induction is used to prove results such as:</p>
+    <ul>
+      <li>2<sup>n</sup> &gt; n &nbsp; (Example 3 of this project)</li>
+      <li>n &lt; 2<sup>n</sup> and n! &gt; 2<sup>n</sup> for sufficiently large n</li>
+      <li>Bernoulli-type inequalities, for example (1 + x)<sup>n</sup> &ge; 1 + nx for x &ge; &minus;1, n &isin; N</li>
+      <li>identities like (a + b)<sup>n</sup> expansions in special cases, and De Moivre&rsquo;s theorem in complex numbers (Class 11)</li>
+    </ul>
+ 
+    <h3>3. Divisibility and number theory</h3>
+    <p>A large family of Class 11 / 12 problems is of the type &ldquo;show that an expression is divisible by a fixed integer&rdquo;. Example 4 was one such result. Other typical statements are:</p>
+    <ul>
+      <li>3<sup>n</sup> &minus; 1 is divisible by 2</li>
+      <li>x<sup>n</sup> &minus; y<sup>n</sup> is divisible by x &minus; y</li>
+      <li>n&sup3; + 2n is divisible by 3</li>
+      <li>10<sup>n</sup> &minus; 1 is divisible by 9 (a string of n nines)</li>
+    </ul>
+    <p>The method is always the same: write the k-case as a multiple of the given number, then factor the (k + 1)-case.</p>
+ 
+    <h3>4. Other branches</h3>
+    <p><strong>Binomial theorem:</strong> the identity C(n, r) + C(n, r &minus; 1) = C(n + 1, r) can be used with induction on n to prove (x + y)<sup>n</sup> = &sum; C(n, r) x<sup>n&minus;r</sup> y<sup>r</sup>.</p>
+    <p><strong>Computer science:</strong> correctness of loops, recursion (factorial, Fibonacci) and the complexity of divide-and-conquer algorithms (such as binary search) are often proved by induction on the size of the input.</p>
+    <p><strong>Sets and logic:</strong> many results about finite sets (for example, a set with n elements has 2<sup>n</sup> subsets) are proved by induction on n.</p>
+    <p>Thus PMI is a bridge between Class 11 algebra and later work in higher mathematics.</p>
+    <footer class="page-no">Page 10 of 12</footer>
+  </article>
+ 
+  <!-- ===================== PAGE 11 ===================== -->
+  <article class="page lined">
+    <header class="page-top">
+      <span>Mathematics Project &middot; Class XII CBSE</span>
+      <span>Mathematical Induction</span>
+    </header>
+    <p class="page-label">PAGE 11</p>
+    <h2>Advantages, Limitations and Importance</h2>
+ 
+    <h3>Advantages</h3>
+    <ul>
+      <li>It proves a result for infinitely many numbers in a finite number of steps.</li>
+      <li>The method is uniform. Once we learn the two-step pattern, we can apply it to sums, inequalities and divisibility.</li>
+      <li>It makes our reasoning exact. Every step is written, so mistakes are easy to find.</li>
+      <li>It matches the way natural numbers are built: start at 1 and keep adding 1.</li>
+      <li>It is accepted in board examinations as a complete method of proof.</li>
+    </ul>
+ 
+    <h3>Limitations</h3>
+    <ul>
+      <li>We must already know (or guess) the statement P(n). Induction does not discover the formula; it only proves it.</li>
+      <li>It works directly for statements about natural numbers (or integers from some starting point). It is not the right tool for statements about all real numbers.</li>
+      <li>If the inductive step is written carelessly, we may think we have a proof when we do not.</li>
+      <li>Some true statements need a stronger form (strong induction), where we assume P(1), P(2), &hellip;, P(k) to prove P(k + 1). Fibonacci identities often need this.</li>
+      <li>A wrong base case cannot be saved by a correct inductive step.</li>
+    </ul>
+ 
+    <h3>Importance for a Class 12 student</h3>
+    <p>Even though the main NCERT chapter on PMI is in Class 11, the method is used in Class 12 whenever we justify a general term, a sum, or a divisibility fact. It also prepares us for proofs in college mathematics. Learning to write P(n), P(k) and P(k + 1) clearly is itself a useful examination skill.</p>
+ 
+    <h3>Flowchart of the two-step process</h3>
+    <div class="flow">
+      <div class="flow-box start">Start: write the statement P(n)</div>
+      <div class="arrow">&#8595;</div>
+      <div class="flow-box">Step 1 &mdash; Base case: prove P(1) [or the first allowed n]</div>
+      <div class="arrow">&#8595;</div>
+      <div class="flow-row">
+        <div class="flow-box warn">If P(1) is false, stop. Proof fails.</div>
+        <div class="flow-box">If P(1) is true, go on</div>
+      </div>
+      <div class="arrow">&#8595;</div>
+      <div class="flow-box">Step 2(a) &mdash; Assume P(k) is true (Inductive Hypothesis)</div>
+      <div class="arrow">&#8595;</div>
+      <div class="flow-box">Step 2(b) &mdash; Using P(k), prove P(k + 1)</div>
+      <div class="arrow">&#8595;</div>
+      <div class="flow-box ok">By PMI, P(n) is true for all n &isin; N. End.</div>
+    </div>
+    <p class="center-note">Remember: both boxes &mdash; base case and inductive step &mdash; must be green before we claim the result.</p>
+    <footer class="page-no">Page 11 of 12</footer>
+  </article>
+ 
+  <!-- ===================== PAGE 12 ===================== -->
+  <article class="page lined">
+    <header class="page-top">
+      <span>Mathematics Project &middot; Class XII CBSE</span>
+      <span>Mathematical Induction</span>
+    </header>
+    <p class="page-label">PAGE 12</p>
+    <h2>Conclusion</h2>
+    <p>Mathematical Induction is a simple but powerful method of proof. It rests on two ideas only: check the first case, and show that each case leads to the next. With these two steps we can prove statements for every natural number.</p>
+    <p>In this project we began with the meaning and importance of induction, using the familiar picture of falling dominos. We then wrote the Principle of Mathematical Induction in words and in symbols, and we explained P(n), P(k) and P(k + 1) carefully.</p>
+    <p>Five solved examples were presented:</p>
+    <ol class="plain">
+      <li>1 + 2 + &hellip; + n = n(n + 1)/2</li>
+      <li>1 + 3 + &hellip; + (2n &minus; 1) = n&sup2;</li>
+      <li>2<sup>n</sup> &gt; n for all positive integers n</li>
+      <li>7<sup>n</sup> &minus; 1 is divisible by 6</li>
+      <li>1&sup2; + 2&sup2; + &hellip; + n&sup2; = n(n + 1)(2n + 1)/6</li>
+    </ol>
+    <p>These examples cover the three main types of school problems: summation formulas, inequalities and divisibility. We also noted applications in sequences, algebra, the binomial theorem and computer science, and we listed the advantages and limitations of the method. The flowchart on the previous page is a short revision of the whole process.</p>
+    <p>A student who can write a clean induction proof has learnt more than one chapter. The student has learnt to start from a definition, to use an assumption honestly, and to finish with a clear conclusion. That habit of mind is the real value of this project.</p>
+    <p>I conclude that the Principle of Mathematical Induction is an essential tool in Class 11 and Class 12 Mathematics, and that regular practice of such proofs builds accuracy and confidence.</p>
+ 
+    <h2>Bibliography</h2>
+    <ol class="biblio">
+      <li>NCERT, <em>Mathematics, Textbook for Class XI</em>, Chapter 4: Principle of Mathematical Induction, National Council of Educational Research and Training, New Delhi.</li>
+      <li>NCERT, <em>Mathematics, Textbook for Class XII</em> (Parts I and II), National Council of Educational Research and Training, New Delhi. (Sequences, series and related algebraic identities.)</li>
+      <li>CBSE, <em>Mathematics Curriculum / Syllabus, Classes XI&ndash;XII</em>, Central Board of Secondary Education, New Delhi.</li>
+      <li>R.D. Sharma, <em>Mathematics for Class 11</em>, Dhanpat Rai Publications. (Additional solved problems on PMI.)</li>
+      <li>R.S. Aggarwal, <em>Senior Secondary School Mathematics for Class 11</em>, Bharati Bhawan. (Practice exercises on induction.)</li>
+      <li>Hall and Knight, <em>Higher Algebra</em> (selected elementary chapters on series and inequalities), for extra reading.</li>
+      <li>NCERT Exemplar Problems, <em>Mathematics Class XI</em>, chapter on Principle of Mathematical Induction.</li>
+    </ol>
+    <p class="end-line">***** End of Project (12 pages) *****</p>
+    <footer class="page-no">Page 12 of 12</footer>
+  </article>
+</body>
+</html>
