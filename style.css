@@ -1,0 +1,383 @@
+/* Class 12 CBSE Mathematics Project — handwritten A4 look */
+ 
+:root {
+  --ink: #1e2a44;
+  --ink-soft: #2c3a58;
+  --red-margin: #d45a5a;
+  --line: #c5d4ea;
+  --paper: #fbf6ea;
+  --paper-edge: #e8dcc4;
+  --accent: #3b4a6b;
+  --box: #efe4c8;
+  --ok: #d6e8c8;
+  --warn: #f3d6c4;
+}
+ 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+html, body {
+  background: #5c6b7a;
+  color: var(--ink);
+  font-family: "Kalam", "Patrick Hand", cursive;
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+ 
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  background: #2c3a58;
+  color: #fbf6ea;
+  font-family: "Kalam", cursive;
+}
+ 
+.toolbar-title { font-size: 16px; }
+ 
+.toolbar button {
+  font-family: "Kalam", cursive;
+  font-size: 15px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  background: #f7e7c6;
+  color: #1e2a44;
+  cursor: pointer;
+}
+ 
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  height: 297mm;
+  margin: 18px auto;
+  background: var(--paper);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+ 
+.lined {
+  padding: 14mm 16mm 16mm 22mm;
+  background-image:
+    linear-gradient(to right, transparent 17mm, var(--red-margin) 17mm, var(--red-margin) calc(17mm + 1.4px), transparent calc(17mm + 1.4px)),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 27.5px,
+      var(--line) 27.5px,
+      var(--line) 28.5px
+    );
+  background-origin: border-box;
+}
+ 
+.page-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #6a5a48;
+  border-bottom: 1px dashed #b8a88c;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+}
+ 
+.page-label {
+  text-align: center;
+  font-family: "Caveat", cursive;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #8a4b2a;
+  margin: 2px 0 4px;
+}
+ 
+h2 {
+  font-family: "Caveat", cursive;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 4px 0 8px;
+  border-bottom: 2px solid #c9b896;
+  line-height: 1.2;
+}
+ 
+h3 {
+  font-family: "Caveat", cursive;
+  font-size: 20px;
+  font-weight: 700;
+  color: #5a3a2a;
+  margin: 8px 0 4px;
+}
+ 
+p { margin: 3px 0 5px; }
+ 
+ul, ol { margin: 4px 0 8px 22px; }
+li { margin: 2px 0; }
+ 
+.plain { margin-left: 22px; }
+ 
+.formula {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  background: rgba(255, 244, 214, 0.72);
+  border: 1px dashed #b89a5a;
+  padding: 4px 8px;
+  margin: 6px 10px;
+}
+ 
+.work {
+  font-family: "Patrick Hand", cursive;
+  font-size: 16px;
+  margin: 1px 0 1px 18px;
+}
+ 
+.box {
+  background: var(--box);
+  border: 2px solid #3b4a6b;
+  padding: 6px 12px;
+  margin: 8px 4px;
+}
+ 
+.note {
+  background: #f3e6c8;
+  border-left: 4px solid #8a4b2a;
+  padding: 4px 10px;
+  margin: 8px 0;
+}
+ 
+.diagram {
+  margin: 4px auto;
+  text-align: center;
+}
+ 
+.diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+ 
+table.simple {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6px 0 8px;
+  font-size: 14px;
+}
+ 
+table.simple th,
+table.simple td {
+  border: 1px solid #3b4a6b;
+  padding: 3px 6px;
+  text-align: center;
+}
+ 
+table.simple th {
+  background: #e4d4b0;
+}
+ 
+.page-no {
+  position: absolute;
+  bottom: 8mm;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 13px;
+  color: #6a5a48;
+}
+ 
+/* Cover and certificate */
+.cover-page, .cert-page {
+  background:
+    radial-gradient(circle at 20% 15%, rgba(255,255,255,0.35), transparent 40%),
+    var(--paper);
+  padding: 12mm;
+}
+ 
+.cover-outer {
+  height: 100%;
+  border: 6px double #3b4a6b;
+  padding: 8px;
+}
+ 
+.cover-inner {
+  height: 100%;
+  border: 2px solid #8a4b2a;
+  padding: 18mm 14mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+ 
+.cover-board {
+  font-family: "Caveat", cursive;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: #8a4b2a;
+}
+ 
+.cover-class {
+  font-size: 18px;
+  margin-top: 4px;
+}
+ 
+.cover-line {
+  width: 70%;
+  height: 2px;
+  background: #3b4a6b;
+  margin: 14px auto;
+}
+ 
+.cover-label {
+  font-size: 20px;
+  letter-spacing: 6px;
+  border: 2px solid #3b4a6b;
+  padding: 4px 22px;
+}
+ 
+.cover-topic {
+  font-family: "Caveat", cursive;
+  font-size: 64px;
+  line-height: 0.95;
+  color: #3b4a6b;
+  margin: 18px 0 10px;
+}
+ 
+.cover-formula {
+  font-size: 16px;
+  background: #efe4c8;
+  padding: 8px 12px;
+  border: 1px dashed #3b4a6b;
+  margin: 6px 0 4px;
+}
+ 
+.cover-meta {
+  margin-top: 22px;
+  font-size: 17px;
+  text-align: left;
+  width: 85%;
+}
+ 
+.cover-meta td { padding: 6px 8px; }
+.cover-meta td:first-child { width: 38%; font-weight: 700; }
+ 
+.cover-foot {
+  margin-top: auto;
+  font-size: 14px;
+  color: #5a4a3a;
+}
+ 
+.cert-title {
+  font-family: "Caveat", cursive;
+  font-size: 48px;
+  color: #3b4a6b;
+}
+ 
+.cert-body {
+  text-align: justify;
+  font-size: 18px;
+  margin: 12px 8px;
+  line-height: 1.7;
+}
+ 
+.blank-inline {
+  display: inline-block;
+  min-width: 80px;
+}
+ 
+.cert-sign {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 28px;
+  text-align: center;
+  font-size: 15px;
+}
+ 
+.cert-sign > div { width: 45%; }
+.sign-line { margin-bottom: 4px; }
+ 
+/* Flowchart */
+.flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 6px 0 4px;
+}
+ 
+.flow-box {
+  border: 2px solid #3b4a6b;
+  background: #efe4c8;
+  padding: 4px 10px;
+  text-align: center;
+  font-size: 13.5px;
+  width: 88%;
+  border-radius: 4px;
+}
+ 
+.flow-box.start { background: #dce4f4; }
+.flow-box.ok { background: var(--ok); }
+.flow-box.warn { background: var(--warn); width: auto; }
+ 
+.flow-row {
+  display: flex;
+  gap: 8px;
+  width: 92%;
+  justify-content: center;
+}
+ 
+.flow-row .flow-box { width: 48%; font-size: 12.5px; }
+ 
+.arrow {
+  font-size: 16px;
+  line-height: 1;
+  color: #3b4a6b;
+}
+ 
+.center-note {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 4px;
+}
+ 
+.biblio { font-size: 13.5px; }
+.biblio li { margin: 4px 0; }
+ 
+.end-line {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 700;
+  color: #8a4b2a;
+}
+ 
+@media print {
+  html, body {
+    background: white;
+    margin: 0;
+    padding: 0;
+  }
+  .no-print { display: none !important; }
+  .page {
+    margin: 0;
+    box-shadow: none;
+    width: 210mm;
+    height: 297mm;
+    page-break-after: always;
+    break-after: page;
+  }
+}
+ 
+@page {
+  size: A4;
+  margin: 0;
+}
+ 
